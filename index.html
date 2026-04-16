@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babhekile Consulting Solutions</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Professional Corporate Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Logo-inspired Rainbow Theme */
+            --primary: #1a1a2e;
+            --primary-mid: #2d2d44;
+            --primary-light: #3d3d5c;
+            
+            /* Rainbow Accent Colors */
+            --rainbow-red: #e74c3c;
+            --rainbow-orange: #f39c12;
+            --rainbow-yellow: #f1c40f;
+            --rainbow-green: #2ecc71;
+            --rainbow-blue: #3498db;
+            --rainbow-purple: #9b59b6;
+            
+            /* Primary accent - warm coral/orange from logo */
+            --accent: #f39c12;
+            --accent-hover: #e67e22;
+            --accent-light: #fef3e2;
+            
+            /* Secondary accents */
+            --coral: #e74c3c;
+            --coral-light: #fdedec;
+            --purple: #9b59b6;
+            --purple-light: #d7bde2;
+            --teal: #1abc9c;
+            --teal-light: #d5f5e3;
+            --blue: #3498db;
+            --blue-light: #d6eaf8;
+            
+            --surface: #f9fafb;
+            --surface-warm: #faf9f7;
+            --glass: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a68;
+            --text-muted: #6b7280;
+            --border-light: rgba(0,0,0,0.06);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-lg: 20px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.15);
+            --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-ui: 'DM Sans', 'Inter', sans-serif;
+            
+            /* Rainbow gradient */
+            --gradient-rainbow: linear-gradient(135deg, var(--rainbow-red) 0%, var(--rainbow-orange) 20%, var(--rainbow-yellow) 40%, var(--rainbow-green) 60%, var(--rainbow-blue) 80%, var(--rainbow-purple) 100%);
+            --gradient-warm: linear-gradient(135deg, var(--coral) 0%, var(--accent) 50%, var(--rainbow-yellow) 100%);
+            --gradient-cool: linear-gradient(135deg, var(--teal) 0%, var(--blue) 50%, var(--purple) 100%);
+        }
+
+        * { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-primary);
+            background: #fff;
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3 { font-family: var(--font-heading); color: var(--primary); letter-spacing: -0.02em; line-height: 1.15; }
+        h4, h5, h6 { font-family: var(--font-body); font-weight: 700; color: var(--text-primary); letter-spacing: -0.015em; line-height: 1.35; }
+        p { color: var(--text-secondary); line-height: 1.75; letter-spacing: 0.005em; }
+
+        .section-label {
+            display: inline-flex; align-items: center; gap: 12px;
+            font-family: var(--font-ui); font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 4px; color: var(--accent); margin-bottom: 1.25rem;
+        }
+        .section-label::before { content: ''; width: 40px; height: 3px; background: var(--gradient-rainbow); border-radius: 2px; }
+        
+        .section-label {
+            background: var(--gradient-rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; color: var(--primary);
+        }
+
+        /* ── Navbar ── */
+        .navbar-modern {
+            padding: 1.1rem 0; backdrop-filter: blur(24px);
+            background: rgba(255,255,255,0.92) !important;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.35s ease; z-index: 1030;
+        }
+        .navbar-modern.scrolled { padding: 0.7rem 0; box-shadow: var(--shadow-md); }
+        .navbar-brand-text {
+            font-family: var(--font-ui); font-weight: 800; font-size: 1.15rem;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--primary) !important;
+        }
+        .nav-link {
+            font-family: var(--font-ui); font-weight: 600; font-size: 0.82rem;
+            letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary) !important;
+            position: relative; padding: 0.5rem 1rem !important; transition: color 0.3s;
+        }
+        .nav-link:hover { color: var(--primary) !important; }
+        .nav-link::after {
+            content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+            width: 0; height: 2px; background: var(--accent); transition: width 0.3s;
+        }
+        .nav-link:hover::after { width: 50%; }
+        .nav-link.active { color: var(--primary) !important; }
+        .nav-link.active::after { width: 50%; }
+
+        .btn-cta {
+            font-family: var(--font-ui); background: var(--gradient-warm); color: white !important;
+            font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
+            border: none; border-radius: 6px; padding: 0.7rem 1.8rem; transition: all 0.3s;
+            box-shadow: 0 2px 15px rgba(243,156,18,0.35);
+            position: relative; overflow: hidden;
+        }
+        .btn-cta::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .btn-cta:hover::before { left: 100%; }
+        .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(243,156,18,0.5); }
+
+        .btn-outline-elegant {
+            font-family: var(--font-ui); color: white !important; font-weight: 600;
+            font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase;
+            border: 1.5px solid rgba(255,255,255,0.4); border-radius: 6px;
+            padding: 0.7rem 1.8rem; background: transparent; transition: all 0.3s;
+        }
+        .btn-outline-elegant:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative; min-height: 85vh; display: flex; align-items: center;
+            background: linear-gradient(145deg, #1a1a2e 0%, #2d1b4e 40%, #1e3a5f 70%, #0d5c63 100%);
+            overflow: hidden; padding-top: 80px;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 30%, rgba(243,156,18,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(155,89,182,0.2) 0%, transparent 45%),
+                radial-gradient(ellipse at 60% 80%, rgba(26,188,156,0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 70%, rgba(231,76,60,0.1) 0%, transparent 35%);
+        }
+        .hero-shape { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.2; animation: float 10s ease-in-out infinite; }
+        .hero-shape-1 { width: 500px; height: 500px; background: var(--rainbow-orange); top: -150px; right: -150px; opacity: 0.25; }
+        .hero-shape-2 { width: 350px; height: 350px; background: var(--rainbow-purple); bottom: -80px; left: -80px; animation-delay: 3s; opacity: 0.25; }
+        .hero-shape-3 { width: 250px; height: 250px; background: var(--teal); top: 45%; left: 25%; animation-delay: 6s; opacity: 0.25; }
+        @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-25px) scale(1.05); } }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--glass); border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
+            color: rgba(255,255,255,0.85); padding: 10px 22px; border-radius: 6px;
+            font-family: var(--font-ui); font-size: 0.72rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem;
+        }
+        .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+
+        /* ── Hero Image ── */
+        .hero-image-container { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; height: 100%; }
+        .hero-portrait { max-height: 60vh; object-fit: contain; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45)); position: relative; z-index: 3; }
+        .hero-image-glow {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 420px; height: 420px;
+            background: radial-gradient(circle, rgba(200,162,85,0.25) 0%, rgba(74,48,112,0.15) 50%, transparent 70%);
+            border-radius: 50%; filter: blur(50px); z-index: 1;
+        }
+        .floating-badge-glass {
+            position: absolute; background: rgba(10,22,40,0.6); border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px); padding: 0.75rem 1.4rem; border-radius: var(--radius-sm);
+            color: white; display: flex; align-items: center; gap: 12px;
+            box-shadow: var(--shadow-lg); z-index: 5; animation: float-badge 6s ease-in-out infinite;
+        }
+        .floating-badge-glass .badge-num { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; line-height: 1; }
+        .floating-badge-glass .badge-label { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; opacity: 0.7; }
+        .badge-1 { top: 18%; left: -5%; animation-delay: 0s; }
+        .badge-2 { bottom: 20%; right: -5%; animation-delay: 3s; }
+        @keyframes float-badge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+        @media (max-width: 991px) {
+            .hero-portrait { max-height: 45vh; margin-top: 2rem; }
+            .floating-badge-glass { padding: 0.6rem 1rem; }
+            .badge-1 { top: 5%; left: 0; }
+            .badge-2 { bottom: 10%; right: 0; }
+            .hero-image-glow { width: 280px; height: 280px; }
+        }
+
+        /* ── Qualifier ── */
+        .qualifier-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+            font-weight: 700; color: white; line-height: 1.15; letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+        .qr-btn {
+            display: flex; align-items: center; gap: 14px;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px); color: white; padding: 1rem 1.4rem;
+            border-radius: var(--radius-sm); cursor: pointer; transition: all 0.3s;
+            width: 100%; text-align: left; font-family: var(--font-body);
+        }
+        .qr-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); transform: translateX(6px); }
+        .qr-btn .qr-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+        .qr-btn .qr-text { font-weight: 500; font-size: 0.92rem; line-height: 1.4; }
+        .qr-btn .qr-arrow { margin-left: auto; opacity: 0.4; transition: all 0.3s; }
+        .qr-btn:hover .qr-arrow { opacity: 1; transform: translateX(4px); }
+
+        .qr-tag {
+            display: inline-block; font-family: var(--font-ui); font-size: 0.68rem;
+            font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            padding: 6px 14px; border-radius: 4px; margin-bottom: 1rem;
+        }
+        .qr-response-title {
+            font-family: var(--font-heading); font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 700; color: white; line-height: 1.2; margin-bottom: 1rem;
+        }
+        .qr-step {
+            display: flex; align-items: center; gap: 12px;
+            padding: 0.65rem 0; color: rgba(255,255,255,0.85); font-size: 0.9rem;
+        }
+        .qr-step-num {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-ui); font-weight: 700; font-size: 0.72rem;
+            color: var(--accent); flex-shrink: 0;
+        }
+        .qr-back {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.5); font-family: var(--font-ui); font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+            cursor: pointer; transition: color 0.3s; background: none; border: none; padding: 0;
+        }
+        .qr-back:hover { color: white; }
+
+        /* ── Teaser Cards ── */
+        .teaser-card {
+            background: white; border: 1px solid var(--border-light);
+            border-radius: var(--radius); padding: 2.5rem; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column;
+        }
+        .teaser-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+        }
+        .teaser-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: transparent; }
+        .teaser-card:hover::before { transform: scaleX(1); }
+        .teaser-link {
+            font-family: var(--font-ui); font-weight: 700; font-size: 0.82rem;
+            letter-spacing: 1px; text-transform: uppercase; color: var(--accent);
+            text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.3s; margin-top: auto; padding-top: 1.5rem;
+        }
+        .teaser-link:hover { color: var(--accent-hover); gap: 12px; }
+        .teaser-link i { transition: transform 0.3s; }
+        .teaser-link:hover i { transform: translateX(4px); }
+
+        .icon-box { width: 56px; height: 56px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0; }
+        .icon-box-navy { background: rgba(10,22,40,0.06); color: var(--primary); }
+        .icon-box-purple { background: rgba(74,48,112,0.06); color: var(--purple); }
+        .icon-box-gold { background: rgba(200,162,85,0.1); color: var(--accent); }
+        .icon-box-teal { background: rgba(26,122,109,0.06); color: var(--teal); }
+
+        /* ── Stat Row ── */
+        .stat-block { text-align: center; }
+        .stat-num { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 700; line-height: 1; }
+        .stat-label { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-top: 0.25rem; }
+
+        /* ── Evolution Mini ── */
+        .evo-item { display: flex; align-items: flex-start; gap: 1.25rem; }
+        .evo-year {
+            font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700;
+            color: var(--accent); white-space: nowrap; min-width: 52px; line-height: 1.5;
+        }
+        .evo-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+        .evo-line { width: 2px; background: var(--border-light); min-height: 32px; margin-left: 5px; }
+
+        /* ── Client Cards ── */
+        /* ── Methodology Flow ── */
+        .method-step { display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; }
+        .method-circle { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-ui); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.5px; text-transform: uppercase; color: white; box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: transform 0.3s; }
+        .method-circle:hover { transform: scale(1.08); }
+        .method-label { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--text-muted); margin-top: 0.75rem; }
+        .method-connector { height: 2px; flex: 1; background: linear-gradient(90deg, var(--accent), var(--purple)); margin-top: 44px; opacity: 0.25; }
+        @media (max-width: 768px) {
+            .method-connector { display: none; }
+            .method-step { margin-bottom: 1.5rem; }
+        }
+
+        .client-card {
+            background: white; border: 1px solid var(--border-light);
+            border-radius: var(--radius); padding: 1.5rem; text-align: center;
+            transition: all 0.3s; height: 100%;
+        }
+        .client-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        .client-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 0.75rem; }
+        .client-card h6 { font-family: var(--font-body); font-weight: 700; font-size: 0.92rem; margin-bottom: 0; }
+
+        /* ── Contact ── */
+        .contact-card {
+            background: linear-gradient(145deg, var(--primary) 0%, var(--primary-mid) 50%, var(--purple) 100%);
+            border-radius: var(--radius-lg); padding: 3rem; color: white;
+            position: relative; overflow: hidden;
+        }
+        .contact-card::before { content: ''; position: absolute; top: -40%; right: -25%; width: 400px; height: 400px; border-radius: 50%; background: rgba(200,162,85,0.08); }
+        .contact-card h3 { font-family: var(--font-heading); color: white; }
+        .contact-item {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;
+            padding: 1rem 1.25rem; background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm); backdrop-filter: blur(12px); transition: all 0.3s;
+        }
+        .contact-item:hover { background: rgba(255,255,255,0.12); transform: translateX(4px); }
+        .contact-item a { color: white; text-decoration: none; font-weight: 500; }
+        .contact-icon-circle {
+            width: 44px; height: 44px; border-radius: 50%; background: rgba(200,162,85,0.15);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+            color: var(--accent); font-size: 1.1rem;
+        }
+        .form-elegant {
+            border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius-sm);
+            padding: 0.85rem 1.25rem; font-family: var(--font-body); font-size: 0.9rem;
+            transition: all 0.3s; background: white;
+        }
+        .form-elegant:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(200,162,85,0.1); }
+
+        .gradient-divider { height: 4px; background: var(--gradient-rainbow); border: none; opacity: 1; border-radius: 2px; }
+
+        /* ── Footer ── */
+        .footer { background: var(--primary); color: rgba(255,255,255,0.5); padding: 3rem 0 1.5rem; }
+        .footer a { color: rgba(255,255,255,0.5); text-decoration: none; font-family: var(--font-ui); font-size: 0.85rem; letter-spacing: 0.5px; transition: color 0.3s; }
+        .footer a:hover { color: var(--accent); }
+        .footer .footer-brand { font-family: var(--font-ui); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: white; font-size: 0.95rem; }
+
+        .scroll-top {
+            position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px;
+            border-radius: 8px; background: var(--accent); color: var(--primary); border: none;
+            font-size: 1.1rem; box-shadow: 0 4px 15px rgba(200,162,85,0.35);
+            z-index: 1000; opacity: 0; transform: translateY(20px); transition: all 0.3s; cursor: pointer;
+        }
+        .scroll-top.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(200,162,85,0.5); }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-modern fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+                <img src="logo1.png" alt="Babhekile Logo" style="height: 45px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navContent">
+                <ul class="navbar-nav align-items-lg-center gap-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-cta" href="#contact">Get In Touch</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+
+        <div class="container position-relative z-1">
+            <div class="row align-items-center" style="min-height:75vh;">
+
+                <!-- Left: Qualifier -->
+                <div class="col-lg-6 pt-5 pt-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-badge mt-12 mt-lg-4">
+                        <span class="dot"></span>
+                        Transformation Advisory &bull; Workforce Transition &bull; Governance
+                    </div>
+
+                    <h1 class="qualifier-title">What's Your Biggest<br>Challenge Right Now?</h1>
+
+                    <!-- Persona Buttons -->
+                    <div id="qualifierGrid" class="d-flex flex-column gap-3 pb-4">
+                        <button class="qr-btn" data-persona="corporate" onclick="selectPersona(this)">
+                            <div class="qr-icon" style="background:rgba(200,162,85,0.15);color:var(--accent);"><i class="bi bi-building"></i></div>
+                            <span class="qr-text">Implementing a major change<br><small style="opacity:0.6;font-size:0.78rem;">New system, restructure or strategic shift</small></span>
+                            <i class="bi bi-arrow-right qr-arrow"></i>
+                        </button>
+                        <button class="qr-btn" data-persona="workforce" onclick="selectPersona(this)">
+                            <div class="qr-icon" style="background:rgba(74,48,112,0.15);color:var(--purple-light);"><i class="bi bi-people"></i></div>
+                            <span class="qr-text">Preparing or upskilling a workforce<br><small style="opacity:0.6;font-size:0.78rem;">Bridge training, readiness or development</small></span>
+                            <i class="bi bi-arrow-right qr-arrow"></i>
+                        </button>
+                        <button class="qr-btn" data-persona="governance" onclick="selectPersona(this)">
+                            <div class="qr-icon" style="background:rgba(26,122,109,0.15);color:var(--teal);"><i class="bi bi-shield-check"></i></div>
+                            <span class="qr-text">Compliance, SETAs or funding help<br><small style="opacity:0.6;font-size:0.78rem;">WSP, ATR, mandatory or discretionary grants</small></span>
+                            <i class="bi bi-arrow-right qr-arrow"></i>
+                        </button>
+                        <button class="qr-btn" data-persona="community" onclick="selectPersona(this)">
+                            <div class="qr-icon" style="background:rgba(255,255,255,0.08);color:white;"><i class="bi bi-megaphone"></i></div>
+                            <span class="qr-text">Stakeholder or community engagement<br><small style="opacity:0.6;font-size:0.78rem;">Public participation, consultations, dialogue</small></span>
+                            <i class="bi bi-arrow-right qr-arrow"></i>
+                        </button>
+                    </div>
+
+                    <!-- Qualifier Response (hidden by default) -->
+                    <div id="qualifierResponse" style="display:none;" class="pb-4">
+                        <div id="qrTag" class="qr-tag" style="background:rgba(200,162,85,0.15);color:var(--accent);">Change Management</div>
+                        <h3 id="qrTitle" class="qr-response-title">We'll guide your organisation through transformation.</h3>
+                        <p style="color:rgba(255,255,255,0.65);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;" id="qrDesc">Whether it's a new system, restructure, or strategic shift — we align your people, process and communication.</p>
+
+                        <div id="qrSteps" class="mb-3">
+                            <div class="qr-step"><span class="qr-step-num">1</span>Stakeholder mapping & alignment</div>
+                            <div class="qr-step"><span class="qr-step-num">2</span>Change readiness assessment</div>
+                            <div class="qr-step"><span class="qr-step-num">3</span>Communication strategy</div>
+                            <div class="qr-step"><span class="qr-step-num">4</span>Post-implementation support</div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <a href="#contact" class="btn btn-cta btn-lg px-4 py-3">Let's Talk <i class="bi bi-arrow-right ms-2"></i></a>
+                            <a href="services.html" class="btn btn-outline-elegant btn-lg px-4 py-3">View All Services</a>
+                        </div>
+
+                        <button class="qr-back mt-4" onclick="resetPersona()"><i class="bi bi-arrow-left"></i> Back to questions</button>
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="col-lg-6 position-relative" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="hero-image-container">
+                        <div class="hero-image-glow"></div>
+
+                        <div class="floating-badge-glass badge-1">
+                            <div class="badge-num" style="color:var(--accent);">24+</div>
+                            <div>
+                                <div class="badge-label">Years of</div>
+                                <div class="badge-label" style="opacity:1;color:white;">Experience</div>
+                            </div>
+                        </div>
+
+                        <img src="lindiwe-twala-removebg-preview.png"
+                             alt="Lindiwe Twala — Founder & Lead Consultant"
+                             class="img-fluid hero-portrait">
+
+                        <div class="floating-badge-glass badge-2">
+                            <i class="bi bi-patch-check-fill" style="color:var(--accent);font-size:1.4rem;"></i>
+                            <div>
+                                <div class="badge-label">Proven</div>
+                                <div class="badge-label" style="opacity:1;color:white;">Impact</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ STATS BAR ═══════════════════ -->
+    <section style="background:white;border-bottom:1px solid var(--border-light);" class="py-4">
+        <div class="container">
+            <div class="row g-4 align-items-center justify-content-center" data-aos="fade-up">
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-num" style="color:var(--accent);">2002</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-num" style="color:var(--purple);">24+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-num" style="color:var(--teal);">5+</div>
+                    <div class="stat-label">Sectors Served</div>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-num" style="color:var(--primary);">3</div>
+                    <div class="stat-label">Core Service Areas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ OUR APPROACH ═══════════════════ -->
+    <section id="approach" class="py-5" style="background:white;">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Methodology</span>
+                <h2 class="section-title">Our Approach</h2>
+                <p class="mx-auto" style="max-width:600px;">We follow a structured methodology ensuring every programme is aligned, implemented, and sustained for lasting impact.</p>
+            </div>
+
+            <!-- 5-Step Flow -->
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-0 mb-5 pb-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="method-step">
+                    <div class="method-circle" style="background:linear-gradient(135deg,var(--coral),#c0392b);box-shadow:0 8px 20px rgba(231,76,60,0.3);">Diagnose</div>
+                    <div class="method-label">Understand the challenge</div>
+                </div>
+                <div class="method-connector d-none d-md-block"></div>
+                <div class="method-step">
+                    <div class="method-circle" style="background:linear-gradient(135deg,var(--purple),#5e3d8f);">Train</div>
+                    <div class="method-label">Build capability</div>
+                </div>
+                <div class="method-connector d-none d-md-block"></div>
+                <div class="method-step">
+                    <div class="method-circle" style="background:linear-gradient(135deg,var(--teal),#0f6b5f);">Assess</div>
+                    <div class="method-label">Measure readiness</div>
+                </div>
+                <div class="method-connector d-none d-md-block"></div>
+                <div class="method-step">
+                    <div class="method-circle" style="background:linear-gradient(135deg,var(--accent),var(--accent-hover));">Support</div>
+                    <div class="method-label">Provide guidance</div>
+                </div>
+                <div class="method-connector d-none d-md-block"></div>
+                <div class="method-step">
+                    <div class="method-circle" style="background:linear-gradient(135deg,#047857,#059669);box-shadow:0 8px 20px rgba(5,150,105,0.3);">Transition</div>
+                    <div class="method-label">Sustain the change</div>
+                </div>
+            </div>
+
+            <!-- Three Transformation Levels -->
+            <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4">
+                    <div class="text-center p-4 rounded-4" style="background:rgba(10,22,40,0.02);border:1px solid var(--border-light);">
+                        <div class="mb-3" style="width:64px;height:64px;border-radius:50%;background:rgba(10,22,40,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto;"><i class="bi bi-bullseye fs-3" style="color:var(--primary);"></i></div>
+                        <h5 style="font-family:var(--font-body);font-weight:700;">The Beneficiary</h5>
+                        <p class="small mb-0">Empowering individuals with skills and readiness for meaningful participation.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4 rounded-4" style="background:rgba(74,48,112,0.02);border:1px solid var(--border-light);">
+                        <div class="mb-3" style="width:64px;height:64px;border-radius:50%;background:rgba(74,48,112,0.06);display:flex;align-items:center;justify-content:center;margin:0 auto;"><i class="bi bi-people fs-3" style="color:var(--purple);"></i></div>
+                        <h5 style="font-family:var(--font-body);font-weight:700;">The Workforce</h5>
+                        <p class="small mb-0">Aligning teams with organisational goals through structured development.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-center p-4 rounded-4" style="background:rgba(200,162,85,0.03);border:1px solid var(--border-light);">
+                        <div class="mb-3" style="width:64px;height:64px;border-radius:50%;background:rgba(200,162,85,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto;"><i class="bi bi-building fs-3" style="color:var(--accent);"></i></div>
+                        <h5 style="font-family:var(--font-body);font-weight:700;">The Institution</h5>
+                        <p class="small mb-0">Strengthening systems, governance, and compliance for sustainable impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="services.html" class="teaser-link">See How We Deliver <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ ABOUT THE FOUNDER ═══════════════════ -->
+    <section id="founder" class="py-5" style="background:var(--surface);">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <!-- Left: Portrait & Journey -->
+                <div class="col-lg-5" data-aos="fade-right">
+
+                    <!-- Portrait Image Card -->
+                    <div class="position-relative rounded-4 overflow-hidden mb-4" style="background:linear-gradient(145deg,var(--primary),var(--primary-mid),var(--purple));min-height:420px;display:flex;align-items:flex-end;justify-content:center;">
+
+                        <!-- Background glow -->
+                        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(200,162,85,0.25) 0%,rgba(74,48,112,0.15) 50%,transparent 70%);border-radius:50%;filter:blur(40px);z-index:1;"></div>
+
+                        <!-- Decorative top accent bar -->
+                        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--purple),var(--teal));z-index:4;"></div>
+
+                        <!-- Portrait image -->
+                        <img src="lindiwe-twala-removebg-preview.png"
+                             alt="Lindiwe Twala — Founder & Lead Consultant"
+                             style="max-height:380px;object-fit:contain;position:relative;z-index:3;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4));">
+
+                        <!-- Name overlay at bottom -->
+                        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(to top,rgba(10,22,40,0.9),transparent);z-index:5;">
+                            <h5 style="font-family:var(--font-heading);color:white;font-size:1.2rem;font-weight:700;margin-bottom:0.1rem;">Lindiwe Twala</h5>
+                            <span style="font-family:var(--font-ui);color:var(--accent);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Founder & Lead Consultant</span>
+                        </div>
+
+                        <!-- Floating years badge -->
+                        <div style="position:absolute;top:1.2rem;right:1.2rem;background:rgba(200,162,85,0.15);border:1px solid rgba(200,162,85,0.3);backdrop-filter:blur(12px);padding:0.6rem 1rem;border-radius:8px;z-index:6;text-align:center;">
+                            <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--accent);line-height:1;">24+</div>
+                            <div style="font-family:var(--font-ui);font-size:0.6rem;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:2px;">Years</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats strip -->
+                    <div class="d-flex rounded-4 overflow-hidden mb-4" style="border:1px solid var(--border-light);">
+                        <div class="flex-1 text-center py-3 px-2" style="flex:1;background:white;">
+                            <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--primary);line-height:1;">2002</div>
+                            <div style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-top:2px;">Founded</div>
+                        </div>
+                        <div style="width:1px;background:var(--border-light);"></div>
+                        <div class="flex-1 text-center py-3 px-2" style="flex:1;background:white;">
+                            <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--purple);line-height:1;">5+</div>
+                            <div style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-top:2px;">Sectors</div>
+                        </div>
+                        <div style="width:1px;background:var(--border-light);"></div>
+                        <div class="flex-1 text-center py-3 px-2" style="flex:1;background:white;">
+                            <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--teal);line-height:1;">3</div>
+                            <div style="font-family:var(--font-ui);font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-top:2px;">Services</div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Journey -->
+                    <div class="p-4 rounded-4" style="background:white;border:1px solid var(--border-light);">
+                        <h6 style="font-family:var(--font-ui);font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;">The Journey</h6>
+                        <div class="evo-item">
+                            <div class="evo-year">2002</div>
+                            <div><div class="evo-dot" style="background:var(--accent);"></div><div class="evo-line"></div></div>
+                            <div><strong style="font-size:0.88rem;">Sakha Skills Training</strong><br><small class="text-muted">Foundation</small></div>
+                        </div>
+                        <div class="evo-item">
+                            <div class="evo-year">2011</div>
+                            <div><div class="evo-dot" style="background:var(--purple);"></div><div class="evo-line"></div></div>
+                            <div><strong style="font-size:0.88rem;">Sakha Skills Dev</strong><br><small class="text-muted">Expansion</small></div>
+                        </div>
+                        <div class="evo-item">
+                            <div class="evo-year">2018</div>
+                            <div><div class="evo-dot" style="background:var(--teal);"></div><div class="evo-line"></div></div>
+                            <div><strong style="font-size:0.88rem;">Sakha Consulting</strong><br><small class="text-muted">Consulting</small></div>
+                        </div>
+                        <div class="evo-item">
+                            <div class="evo-year">2026</div>
+                            <div><div class="evo-dot" style="background:linear-gradient(135deg,var(--accent),var(--purple));"></div></div>
+                            <div><strong style="font-size:0.88rem;">Babhekile</strong><br><small class="text-muted">Transformation Advisory</small></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Story & Philosophy -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <span class="section-label">About the Founder</span>
+                    <h2 class="section-title">A Vision Built on<br>Two Decades of Impact</h2>
+
+                    <p class="pe-lg-4" style="font-size:1.02rem;">
+                        Lindiwe Twala's journey began in 2002 with a simple conviction: that skills and knowledge are the foundation of meaningful transformation. What started as a small computer training centre has evolved into one of South Africa's trusted transformation advisory firms.
+                    </p>
+                    <p class="pe-lg-4">
+                        Over 24 years, Lindiwe has worked across corporates, government, NGOs and development institutions — gaining deep insight into how transformation truly happens. She has seen what works and what doesn't, and built Babhekile on the lessons of real-world experience.
+                    </p>
+
+                    <!-- Philosophy -->
+                    <div class="p-4 rounded-4 mb-4" style="background:var(--surface-warm);border-left:3px solid var(--accent);">
+                        <p class="mb-0" style="font-family:var(--font-heading);font-style:italic;font-size:1.1rem;line-height:1.8;color:var(--text-primary);">
+                            "Transformation must be practical, structured, and accountable. Strategy means nothing if it doesn't translate into real impact for real people."
+                        </p>
+                        <p class="mb-0 mt-2" style="font-family:var(--font-heading);font-style:italic;font-size:1.1rem;line-height:1.8;color:var(--text-primary);">
+                            "Babhekile exists to bridge the gap between what organisations plan and what they actually deliver."
+                        </p>
+                    </div>
+
+                    <!-- Core Beliefs -->
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:white;border:1px solid var(--border-light);">
+                                <div class="icon-box icon-box-gold flex-shrink-0" style="width:40px;height:40px;font-size:1rem;"><i class="bi bi-lightbulb-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-1" style="font-size:0.9rem;font-weight:700;">Practical Impact</h6>
+                                    <small class="text-muted">Solutions that work in the real world, not just on paper.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:white;border:1px solid var(--border-light);">
+                                <div class="icon-box icon-box-purple flex-shrink-0" style="width:40px;height:40px;font-size:1rem;"><i class="bi bi-diagram-3-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-1" style="font-size:0.9rem;font-weight:700;">Structured Process</h6>
+                                    <small class="text-muted">Clear methodology with measurable outcomes at every stage.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:white;border:1px solid var(--border-light);">
+                                <div class="icon-box icon-box-teal flex-shrink-0" style="width:40px;height:40px;font-size:1rem;"><i class="bi bi-heart-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-1" style="font-size:0.9rem;font-weight:700;">People-Centred</h6>
+                                    <small class="text-muted">Empowering individuals is at the heart of every engagement.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3 p-3 rounded-3" style="background:white;border:1px solid var(--border-light);">
+                                <div class="icon-box icon-box-navy flex-shrink-0" style="width:40px;height:40px;font-size:1rem;"><i class="bi bi-handshake"></i></div>
+                                <div>
+                                    <h6 class="mb-1" style="font-size:0.9rem;font-weight:700;">Accountable Partnership</h6>
+                                    <small class="text-muted">A trusted advisor, not just a service provider.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="teaser-link">Read the Full Story <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="gradient-divider m-0">
+
+    <!-- ═══════════════════ WHO WE WORK WITH ═══════════════════ -->
+    <section id="clients" class="py-5" style="background:var(--surface);">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Our Clients</span>
+                <h2 class="section-title">Who We Work With</h2>
+                <p class="mx-auto" style="max-width:560px;">We partner with organisations across sectors that are serious about structured, sustainable transformation.</p>
+            </div>
+            <div class="row g-3 justify-content-center">
+                <div class="col-6 col-md-4 col-lg" data-aos="fade-up" data-aos-delay="0">
+                    <div class="client-card">
+                        <div class="client-icon" style="background:rgba(10,22,40,0.06);color:var(--primary);"><i class="bi bi-building"></i></div>
+                        <h6>Corporates</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="client-card">
+                        <div class="client-icon" style="background:rgba(74,48,112,0.06);color:var(--purple);"><i class="bi bi-globe2"></i></div>
+                        <h6>NGOs</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="client-card">
+                        <div class="client-icon" style="background:rgba(26,122,109,0.06);color:var(--teal);"><i class="bi bi-bank2"></i></div>
+                        <h6>Government</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="client-card">
+                        <div class="client-icon" style="background:rgba(200,162,85,0.08);color:var(--accent);"><i class="bi bi-shop"></i></div>
+                        <h6>SMMEs</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="client-card">
+                        <div class="client-icon" style="background:rgba(10,22,40,0.06);color:var(--primary);"><i class="bi bi-mortarboard"></i></div>
+                        <h6>Institutions</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CONTACT ═══════════════════ -->
+    <section id="contact" class="py-5" style="background:white;">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-label">Get Started</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="mx-auto" style="max-width:600px;">Babhekile Consulting Solutions partners with organisations seeking structured, practical and sustainable transformation.</p>
+            </div>
+
+            <div class="row g-5 align-items-stretch">
+                <!-- Form -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="mb-4">
+                        <h5 class="mb-3" style="font-family:var(--font-heading);font-weight:600;">Whether you are:</h5>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3" style="background:var(--surface);">
+                                <div style="width:8px;height:8px;border-radius:2px;background:var(--accent);flex-shrink:0;"></div>
+                                <span style="font-weight:600;font-size:0.95rem;">Implementing a new system</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3" style="background:var(--surface);">
+                                <div style="width:8px;height:8px;border-radius:2px;background:var(--purple);flex-shrink:0;"></div>
+                                <span style="font-weight:600;font-size:0.95rem;">Launching a workforce programme</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3" style="background:var(--surface);">
+                                <div style="width:8px;height:8px;border-radius:2px;background:var(--teal);flex-shrink:0;"></div>
+                                <span style="font-weight:600;font-size:0.95rem;">Strengthening governance</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-3 p-3 rounded-3" style="background:var(--surface);">
+                                <div style="width:8px;height:8px;border-radius:2px;background:var(--primary);flex-shrink:0;"></div>
+                                <span style="font-weight:600;font-size:0.95rem;">Engaging communities</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="mt-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-elegant" placeholder="Your Name">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-elegant" placeholder="Your Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control form-elegant" placeholder="Organisation">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control form-elegant" rows="4" placeholder="How can we support your journey?"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-cta btn-lg w-100 py-3">
+                                    Send Message <i class="bi bi-send-fill ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Card -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-card h-100">
+                        <h3 class="mb-2" style="font-size:1.8rem;">Contact Information</h3>
+                        <p style="color:rgba(255,255,255,0.5);font-family:var(--font-ui);font-size:0.88rem;letter-spacing:0.5px;" class="mb-5">Reach out directly — we'd love to hear from you.</p>
+
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center gap-3">
+                                <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-hover));display:flex;align-items:center;justify-content:center;color:var(--primary);font-family:var(--font-heading);font-weight:700;font-size:1.1rem;">LT</div>
+                                <div>
+                                    <h5 class="mb-0" style="font-size:1.1rem;">Lindiwe Twala</h5>
+                                    <small style="color:var(--accent);font-family:var(--font-ui);font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;">Founder & Lead Consultant</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon-circle"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <small style="color:rgba(255,255,255,0.4);font-family:var(--font-ui);font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;">Email</small><br>
+                                <a href="mailto:lindiwe@babhekile.co.za">lindiwe@babhekile.co.za</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon-circle"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <small style="color:rgba(255,255,255,0.4);font-family:var(--font-ui);font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;">Phone</small><br>
+                                <a href="tel:+27763980720">+27 76 398 0720</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item mb-0">
+                            <div class="contact-icon-circle"><i class="bi bi-linkedin"></i></div>
+                            <div>
+                                <small style="color:rgba(255,255,255,0.4);font-family:var(--font-ui);font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;">LinkedIn</small><br>
+                                <a href="#">LearnWithLindiwe</a>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 pt-4 border-top" style="border-color:rgba(255,255,255,0.1)!important;">
+                            <p class="mb-0" style="font-family:var(--font-heading);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,0.6);">
+                                "We can support your journey."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <div style="width:28px;height:28px;border-radius:5px;background:var(--accent);display:flex;align-items:center;justify-content:center;">
+                            <i class="bi bi-arrow-up-right text-dark small"></i>
+                        </div>
+                        <span class="footer-brand">Babhekile</span>
+                    </div>
+                    <small style="font-family:var(--font-heading);font-style:italic;font-size:0.85rem;color:rgba(255,255,255,0.4);">Structured Transformation. Sustainable Impact.</small>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <div class="d-flex justify-content-md-center gap-3">
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-3">
+                        <a href="mailto:lindiwe@babhekile.co.za"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="tel:+27763980720"><i class="bi bi-telephone-fill"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="border-color:rgba(255,255,255,0.08);">
+            <div class="text-center">
+                <small style="font-family:var(--font-ui);font-size:0.75rem;letter-spacing:1px;">&copy; 2026 Babhekile Consulting Solutions. All rights reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // ── Qualifier Logic ──
+        const personas = {
+            corporate: {
+                tag: 'Change Management',
+                tagBg: 'rgba(200,162,85,0.15)',
+                tagColor: '#c8a255',
+                title: "We'll guide your organisation through transformation.",
+                desc: "Whether it's a new system, restructure, or strategic shift — we align your people, process and communication so nothing falls through the cracks.",
+                steps: ['Stakeholder mapping & alignment', 'Change readiness assessment', 'Communication strategy', 'Post-implementation support']
+            },
+            workforce: {
+                tag: 'Workforce Development',
+                tagBg: 'rgba(74,48,112,0.15)',
+                tagColor: '#7b6ba5',
+                title: "We'll build a ready, capable workforce.",
+                desc: "Our Bridge Training Programme prepares individuals for real workplace environments — closing the gap between intent and readiness.",
+                steps: ['Workplace readiness training', 'Digital & communication skills', 'Professional conduct coaching', 'Employer integration support']
+            },
+            governance: {
+                tag: 'Governance & Compliance',
+                tagBg: 'rgba(26,122,109,0.15)',
+                tagColor: '#1a7a6d',
+                title: "We'll unlock your funding and close compliance gaps.",
+                desc: "From WSP & ATR submissions to SETA alignment and discretionary grant structuring — we make compliance an asset, not a burden.",
+                steps: ['WSP & ATR development', 'Mandatory Grant compliance', 'SETA alignment strategy', 'Monitoring & evaluation systems']
+            },
+            community: {
+                tag: 'Stakeholder Engagement',
+                tagBg: 'rgba(255,255,255,0.08)',
+                tagColor: '#ffffff',
+                title: "We'll structure your stakeholder engagement.",
+                desc: "We design and facilitate inclusive public participation and stakeholder consultation processes that build trust and drive buy-in.",
+                steps: ['Stakeholder mapping & analysis', 'Public participation facilitation', 'Dialogue & consultation design', 'Outcome documentation & reporting']
+            }
+        };
+
+        function selectPersona(btn) {
+            const persona = btn.getAttribute('data-persona');
+            const data = personas[persona];
+            const tag = document.getElementById('qrTag');
+            tag.textContent = data.tag;
+            tag.style.background = data.tagBg;
+            tag.style.color = data.tagColor;
+            document.getElementById('qrTitle').textContent = data.title;
+            document.getElementById('qrDesc').textContent = data.desc;
+            const stepsEl = document.getElementById('qrSteps');
+            stepsEl.innerHTML = data.steps.map((s, i) =>
+                '<div class="qr-step"><span class="qr-step-num">' + (i+1) + '</span>' + s + '</div>'
+            ).join('');
+            document.getElementById('qualifierGrid').style.display = 'none';
+            document.getElementById('qualifierResponse').style.display = 'block';
+        }
+
+        function resetPersona() {
+            document.getElementById('qualifierGrid').style.display = 'flex';
+            document.getElementById('qualifierResponse').style.display = 'none';
+        }
+
+        AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        const scrollBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            scrollBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        // Smooth scroll for same-page anchors only
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+                }
+                const navCollapse = document.getElementById('navContent');
+                const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+                if (bsCollapse) bsCollapse.hide();
+            });
+        });
+    </script>
+</body>
+</html>
